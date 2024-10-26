@@ -1,0 +1,26 @@
+<div class="timer-container">
+    <h2>Wim Hof Breathing Timer</h2>
+  
+    <div class="time-settings">
+      <label>
+        Breath In Time (seconds):
+        <input type="number" [(ngModel)]="breathInTime" [disabled]="isRunning" />
+      </label>
+      <label>
+        Breath Out Time (seconds):
+        <input type="number" [(ngModel)]="breathOutTime" [disabled]="isRunning" />
+      </label>
+    </div>
+  
+    <div class="timer-display" [style.transform]="'scale(' + visualScale + ')'">
+      <h3>{{ currentPhase }}</h3>
+      <p>{{ timeLeft }} seconds</p>
+    </div>
+  
+    <div class="controls">
+      <button (click)="startTimer()" [disabled]="isRunning">Start</button>
+      <button (click)="stopTimer()" [disabled]="!isRunning">Stop</button>
+      <button (click)="resetTimer()">Reset</button>
+    </div>
+  </div>
+  
