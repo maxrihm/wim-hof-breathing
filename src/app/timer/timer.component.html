@@ -1,7 +1,13 @@
+<!-- src/app/timer/timer.component.html -->
+
 <div class="timer-container">
     <h2>Wim Hof Breathing Timer</h2>
   
     <div class="time-settings">
+      <label>
+        Total Duration (seconds):
+        <input type="number" [(ngModel)]="totalDuration" [disabled]="isRunning" />
+      </label>
       <label>
         Breath In Time (seconds):
         <input type="number" [(ngModel)]="breathInTime" [disabled]="isRunning" />
@@ -14,7 +20,7 @@
   
     <div class="timer-display" [style.transform]="'scale(' + visualScale + ')'">
       <h3>{{ currentPhase }}</h3>
-      <p>{{ timeLeft }} seconds</p>
+      <p>{{ sessionTimeLeft.toFixed(0) }} seconds left</p>
     </div>
   
     <div class="controls">

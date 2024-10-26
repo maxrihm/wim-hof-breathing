@@ -1,16 +1,39 @@
+/* src/app/timer/timer.component.css */
 
 .timer-container {
     text-align: center;
     padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    background-color: #f0f4f8;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  h2 {
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    color: #333;
   }
   
   .time-settings {
     margin-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
   }
   
   .time-settings label {
-    display: block;
-    margin: 5px 0;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  input[type="number"] {
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
   }
   
   .timer-display {
@@ -18,12 +41,30 @@
     margin: 20px 0;
     transition: transform 0.5s ease;
     display: inline-block;
-    padding: 20px;
+    padding: 40px;
     border-radius: 50%;
-    background-color: lightblue;
+    background-color: #8ecae6;
+    color: #023047;
   }
   
   .controls button {
     margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: #219ebc;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .controls button:hover {
+    background-color: #126782;
+  }
+  
+  .controls button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
   }
   
