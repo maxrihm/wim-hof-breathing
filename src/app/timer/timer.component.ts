@@ -1,5 +1,3 @@
-// src/app/timer/timer.component.ts
-
 import { Component } from '@angular/core';
 
 @Component({
