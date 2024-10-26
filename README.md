@@ -1,27 +1,24 @@
-# WimHofBreathing
+# Wim Hof Breathing Timer
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.10.
+A simple Angular application that mimics the Wim Hof breathing method. The timer guides the user through breathing in and out cycles with smooth animations, configurable timings, and a total session duration.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Configurable breath in and breath out times.
+- Smooth animations to indicate breathing phases.
+- Total session duration control.
+- Real-time display of current phase time in milliseconds.
 
-## Code scaffolding
+## Technologies Used
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular (v15 or higher)
+- TypeScript
+- HTML & CSS
 
-## Build
+## How to Run
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. Clone the repository.
+2. Navigate to the project directory.
+3. Install dependencies:
+   ```bash
+   npm install
