@@ -8,9 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./timer.component.css']
 })
 export class TimerComponent {
-  breathInTime: number = 4; // Time for breathing in
-  breathOutTime: number = 6; // Time for breathing out
-  totalDuration: number = 60; // Total duration of the breathing session in seconds
+  breathInTime: number = 4; // Time for breathing in, in seconds
+  breathOutTime: number = 6; // Time for breathing out, in seconds
+  totalDuration: number = 60; // Total duration of the breathing session, in seconds
   currentPhase: string = 'Breath In';
   elapsed: number = 0; // Time elapsed in the current phase
   interval: any;
@@ -73,6 +73,11 @@ export class TimerComponent {
       // Gradually decrease from maxScale to minScale
       this.visualScale = this.maxScale - (this.maxScale - this.minScale) * progress;
     }
+  }
+
+  getElapsedMilliseconds(): number {
+    // Return the elapsed time in the current phase, in milliseconds
+    return Math.floor(this.elapsed * 1000);
   }
 
   stopTimer() {

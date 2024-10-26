@@ -3,6 +3,11 @@
 <div class="timer-container">
     <h2>Wim Hof Breathing Timer</h2>
   
+    <!-- Small timer displaying current phase elapsed time in milliseconds -->
+    <div class="small-timer">
+      {{ getElapsedMilliseconds() }} ms
+    </div>
+  
     <div class="time-settings">
       <label>
         Total Duration (seconds):
@@ -23,6 +28,7 @@
       <p>{{ sessionTimeLeft.toFixed(0) }} seconds left</p>
     </div>
   
+    <!-- Move the control buttons slightly below to prevent overlap -->
     <div class="controls">
       <button (click)="startTimer()" [disabled]="isRunning">Start</button>
       <button (click)="stopTimer()" [disabled]="!isRunning">Stop</button>

@@ -8,6 +8,7 @@
     background-color: #f0f4f8;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative; /* For positioning the small timer */
   }
   
   h2 {
@@ -36,15 +37,28 @@
     border: 1px solid #ccc;
   }
   
+  /* Small timer in the upper corner */
+  .small-timer {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 14px;
+    color: #666;
+  }
+  
   .timer-display {
     font-size: 24px;
-    margin: 20px 0;
+    margin: 30px 0; /* Increased margin to avoid overlapping with buttons */
     transition: transform 0.5s ease;
     display: inline-block;
     padding: 40px;
     border-radius: 50%;
     background-color: #8ecae6;
     color: #023047;
+  }
+  
+  .controls {
+    margin-top: 30px; /* Increased top margin to push buttons lower */
   }
   
   .controls button {
