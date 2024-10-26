@@ -12,18 +12,18 @@ export class TimerComponent {
   breathOutTime: number = 6; // Time for breathing out
   totalDuration: number = 60; // Total duration of the breathing session in seconds
   currentPhase: string = 'Breath In';
-  timeLeft: number = this.breathInTime;
   elapsed: number = 0; // Time elapsed in the current phase
   interval: any;
   isRunning: boolean = false;
   visualScale: number = 1; // Scale for animation
+  minScale: number = 1; // Minimum scale for animation
+  maxScale: number = 1.5; // Maximum scale for animation
   sessionTimeLeft: number = this.totalDuration;
 
   startTimer() {
     this.isRunning = true;
     this.currentPhase = 'Breath In';
     this.elapsed = 0;
-    this.timeLeft = this.breathInTime;
     this.sessionTimeLeft = this.totalDuration;
     this.runTimer();
   }
@@ -39,7 +39,7 @@ export class TimerComponent {
       this.elapsed += 0.016; // Increment for smooth animation, ~60fps
       this.sessionTimeLeft -= 0.016;
 
-      if (this.elapsed >= this.timeLeft) {
+      if (this.elapsed >= this.getCurrentPhaseTime()) {
         this.switchPhase();
         this.elapsed = 0;
       }
@@ -52,22 +52,26 @@ export class TimerComponent {
     requestAnimationFrame(step);
   }
 
+  getCurrentPhaseTime(): number {
+    return this.currentPhase === 'Breath In' ? this.breathInTime : this.breathOutTime;
+  }
+
   switchPhase() {
     if (this.currentPhase === 'Breath In') {
       this.currentPhase = 'Breath Out';
-      this.timeLeft = this.breathOutTime;
     } else {
       this.currentPhase = 'Breath In';
-      this.timeLeft = this.breathInTime;
     }
   }
 
   updateVisualScale() {
-    const progress = this.elapsed / this.timeLeft;
+    const progress = this.elapsed / this.getCurrentPhaseTime();
     if (this.currentPhase === 'Breath In') {
-      this.visualScale = 1 + 0.5 * Math.sin(progress * Math.PI); // Gradually increase to 1.5
+      // Gradually increase from minScale to maxScale
+      this.visualScale = this.minScale + (this.maxScale - this.minScale) * progress;
     } else {
-      this.visualScale = 1.5 - 0.5 * Math.sin(progress * Math.PI); // Gradually decrease back to 1
+      // Gradually decrease from maxScale to minScale
+      this.visualScale = this.maxScale - (this.maxScale - this.minScale) * progress;
     }
   }
 
@@ -78,9 +82,8 @@ export class TimerComponent {
   resetTimer() {
     this.stopTimer();
     this.currentPhase = 'Breath In';
-    this.timeLeft = this.breathInTime;
+    this.visualScale = this.minScale;
     this.sessionTimeLeft = this.totalDuration;
-    this.visualScale = 1;
     this.elapsed = 0;
   }
 }
